@@ -12,14 +12,14 @@
  *
  * @param {number} width
  * @param {number} height
- * @return {number}
+ * @return {}
  *
  * @example:
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(a, b) {
+  return a * b;
 }
 
 /**
@@ -33,8 +33,8 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(r) {
+  return 2 * Math.PI * r;
 }
 
 /**
@@ -49,8 +49,13 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(a, b) {
+  const arr = [a, b];
+  const ln = arr.length;
+  if (a + b > Number.MAX_VALUE) {
+    return Number.MAX_VALUE;
+  }
+  return (a + b) / ln;
 }
 
 /**
@@ -68,8 +73,10 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const a = (x2 - x1) ** 2;
+  const b = (y2 - y1) ** 2;
+  return Math.sqrt(a + b);
 }
 
 /**
@@ -84,8 +91,9 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const c = -b / a;
+  return c;
 }
 
 /**
@@ -105,8 +113,21 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  let f = 0;
+  const a = [x1, y1];
+  const b = [x2, y2];
+  const c = a[0] * b[0] + a[1] * b[1];
+  const d = Math.sqrt((a[0] ** 2 + a[1] ** 2) / (b[0] ** 2 + b[1] ** 2));
+  const i = c / d;
+  if (i === 0) {
+    f = 90;
+  }
+  if (i === -1) {
+    f = 180;
+  }
+  const g = (f * Math.PI) / 180;
+  return g;
 }
 
 /**
@@ -122,8 +143,9 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(data) {
+  const result = data.toString().slice(-1);
+  return Number(result);
 }
 
 /**
